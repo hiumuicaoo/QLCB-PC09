@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  quanlycanbo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quanlycanbo_app
+    ports:
+      - "3080:3000"
+    volumes:
+      # =========================================================================
+      # CẤU HÌNH LƯU TRỮ SSD & HDD THEO YÊU CẦU:
+      # - Server (chương trình và Docker container) chạy trên ổ SSD để tối ưu tốc độ.
+      # - Dữ liệu tải lên (văn bằng PDF) và file CSDL JSON được lưu cố định trên ổ HDD.
+      #
+      # Hãy thay thế đường dẫn bên trái "/mnt/hdd/quanlycanbo_data" dưới đây bằng 
+      # đường dẫn thực tế đến phân vùng ổ cứng HDD trên máy chủ Ubuntu của bạn.
+      # =========================================================================
+      - /mnt/hdd/quanlycanbo_data:/app/data
+    environment:
+      - NODE_ENV=production
+      - DATA_DIR=/app/data
+      - PORT=3000
+    restart: unless-stopped

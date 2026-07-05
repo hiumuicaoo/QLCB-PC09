@@ -1,0 +1,6 @@
+{
+  "name": "Hệ thống Quản lý Thông tin Cá nhân",
+  "description": "Quản lý dữ liệu nhân sự, lịch sử công tác, quân hàm, đảng viên và đào tạo bồi dưỡng với công cụ trích xuất timeline thông minh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
